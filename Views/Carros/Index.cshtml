@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebAutoCar.Models.Carros>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cadastrar Novo Carro</h2>
+
+<p>
+    @Html.ActionLink("Adciona novo carro", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCarro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCarro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdCarro }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.IdCarro })
+            </td>
+        </tr>
+    }
+
+</table>

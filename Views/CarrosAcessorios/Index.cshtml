@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebAutoCar.Models.CarrosAcessorios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listagem de Carros e Acessorios</h2>
+
+<table id="tblCarrosAcessorios" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCarrosAcessorios)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carro.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Acessorio.Nome)
+            </th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCarrosAcessorios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carro.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acessorio.Nome)
+            </td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            $('#tblCarrosAcessorios').DataTable();
+        });
+
+    </script>
+}
